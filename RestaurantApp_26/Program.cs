@@ -67,6 +67,30 @@ namespace RestaurantApp_26
                         }
                         break;
 
+                    case "3":
+                        Console.Write("กรอกชื่อร้านที่ต้องการค้นหา: ");
+                        string keyword = Console.ReadLine();
+                        bool foundName = false;
+                        foreach (Restaurant r in restaurants)
+                        {
+                            if (r.Name.IndexOf(
+                            keyword,
+                            StringComparison.OrdinalIgnoreCase) >= 0)
+                            {
+                                Console.WriteLine(
+                                r.Name + " | " +
+                                r.Type + " | " +
+                                r.Rating
+                                );
+                                foundName = true;
+                            }
+                        }
+                        if (!foundName)
+                        {
+                            Console.WriteLine("ไม่พบร้านอาหาร");
+                        }
+                        break;
+
                     case "0":
                         Console.WriteLine("ปิดโปรแกรม");
                         return;
