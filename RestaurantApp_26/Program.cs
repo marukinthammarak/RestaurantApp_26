@@ -10,7 +10,7 @@ namespace RestaurantApp_26
     {
         static void Main(string[] args)
         {
-
+            
         }
     }
 }
