@@ -20,6 +20,40 @@ namespace RestaurantApp_26
                 new Restaurant { Id = 6, Name = "Siji Minfu", Type = "Beijing Cuisine", Rating = 4.6 }
             };
 
+            while (true)
+            {
+                Console.WriteLine();
+                Console.WriteLine("===== RestaurantApp =====");
+                Console.WriteLine("1. แสดงร้านอาหารทั้งหมด");
+                Console.WriteLine("2. กรองร้านตามประเภท");
+                Console.WriteLine("3. ค้นหาร้านตามชื่อ");
+                Console.WriteLine("4. สรุปคะแนนร้านอาหาร");
+                Console.WriteLine("0. ออกจากโปรแกรม");
+                Console.Write("เลือกเมนู: ");
+                string choice = Console.ReadLine();
+                switch (choice)
+                {
+                    case "1":
+                        Console.WriteLine("=== รายชื่อร้านอาหาร ===");
+                        foreach (Restaurant r in restaurants)
+                        {
+                            Console.WriteLine(
+                            r.Id + " | " +
+                            r.Name + " | " +
+                            r.Type + " | " +
+                            r.Rating
+                            );
+                        }
+                        break;
+                    case "0":
+                        Console.WriteLine("ปิดโปรแกรม");
+                        return;
+                    default:
+                        Console.WriteLine("ยังไม่เปิดใช้งานเมนูนี้");
+                        break;
+                }
+            }
+
         }
     }
 }
