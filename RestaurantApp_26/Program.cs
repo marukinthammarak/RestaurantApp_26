@@ -120,4 +120,41 @@ namespace RestaurantApp_26
 
         }
     }
+        namespace StoreRatingFeature
+        {
+        // 1. โมเดลข้อมูลร้านค้า
+        public class Store
+        {
+            public int Id { get; set; }
+            public string Name { get; set; }
+            public double Rating { get; set; }
+        }
+
+        public class Program
+        {
+            public static void GoodRating()
+            {
+                // ข้อมูลจำลองร้านค้า
+                List<Store> stores = new List<Store>
+            {
+                new Store { Id = 1, Name = "ร้านกาแฟ A", Rating = 4.8 },
+                new Store { Id = 2, Name = "ร้านชา B", Rating = 4.2 },
+                new Store { Id = 3, Name = "ร้านเบเกอรี่ C", Rating = 4.5 },
+                new Store { Id = 4, Name = "ร้านอาหาร D", Rating = 3.9 },
+                new Store { Id = 5, Name = "ร้านไอศกรีม E", Rating = 5.0 }
+            };
+
+                // 2. กรองข้อมูลเฉพาะร้านที่มีคะแนนตั้งแต่ 4.5 ขึ้นไป (Rating >= 4.5)
+                var highRatedStores = stores.Where(s => s.Rating >= 4.5).ToList();
+
+                // 3. แสดงผลลัพธ์
+                Console.WriteLine("=== รายชื่อร้านค้าที่มีคะแนน 4.5 ขึ้นไป ===");
+                foreach (var store in highRatedStores)
+                {
+                    Console.WriteLine($"- {store.Name} (คะแนน: {store.Rating})");
+                }
+            }
+        }
+    }
 }
+
